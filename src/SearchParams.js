@@ -1,4 +1,5 @@
-import { useState } from "react"; // hooks always start with use
+import { useState, useEffect } from "react"; // hooks always start with use
+import Pet from "./Pet";
 
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 const SearchParams = () => {
@@ -8,6 +9,20 @@ const SearchParams = () => {
   const [animal, setAnimal] = useState("");
   const [breed, setBreed] = useState("");
   const breeds = [];
+  const [pets, setPets] = useState([]);
+
+  useEffect(() => {
+    requestPets();
+  }, []); //eslint-disable-line react-hooks/exhaustive-deps
+
+  async function requestPets() {
+    const res = await fetch(
+      `http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`
+    );
+    const json = await res.json();
+
+    setPets(json.pets);
+  }
 
   // if(true) { // dont use conditional hooks, ordering problems
   //   const [hook, setHook] = useState("");
@@ -67,6 +82,16 @@ const SearchParams = () => {
           </select>
         </label>
         <button>Submit</button>
+        {[
+          pets.map((pet) => (
+            <Pet
+              name={pet.name}
+              animal={pet.animal}
+              breed={pet.breed}
+              key={pet.id}
+            />
+          )),
+        ]}
       </form>
     </div>
   );
