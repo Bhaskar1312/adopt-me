@@ -188,3 +188,15 @@ Remove <StrictMode> if issue with Routes
 use Href error if Link is outside BrowserRouter
 
 HashRouter adds #/ in url, never leave that page
+
+other class components https://reactjs.org/docs/react-component.html
+
+> npm i -D @babel/plugin-proposal-class-properties@7.16.7
+
+.babelrc
+```
+{
+  "plugins": ["@babel/plugin-proposal-class-properties"]
+}
+```
+babel is doing jsx to js transformations, transpiling, polyfilling, etc

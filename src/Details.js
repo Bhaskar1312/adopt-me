@@ -9,11 +9,13 @@ import {Component} from "react";
 class Details extends Component {
     // cant use Hooks, useParams in class components
 
-    constructor(props) {
-        super(props); // pass props to React
+    // constructor(props) {
+    //     super(props); // pass props to React
+    //
+    //     this.state = {loading: true}; // manage state in class components
+    // }
 
-        this.state = {loading: true}; // manage state in class components
-    }
+    state = {loading: true}; // class properties, babel transpiles this to constructor
 
     async componentDidMount() { // => useEffect(()=>{}, []) in functional components
         // runs after render
