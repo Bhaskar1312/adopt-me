@@ -162,3 +162,15 @@ use elastic search or geocoding api for location search
 
 // supported events or synthetic events
 // https://legacy.reactjs.org/docs/events.html#supported-events
+
+
+// NODE_ENV=development is like 5x slower than production
+// npx parcel build src/index.html --no-source-maps --public-url ./ // to build for production
+// npx serve dist // to serve the production build
+
+// StrictMode in dev, renders twice, compatible with future react versions
+//  <React.StrictMode> // to wrap the app in index.js
+
+// useDebugValue to show in React devtools for custom hooks
+
+// $r in console to see the selected element in react devtools
