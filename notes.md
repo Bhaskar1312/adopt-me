@@ -157,3 +157,8 @@ plugins: ["react-hooks"]
 // useEffect, it re-renders twice because of the way react works, it first renders and then updates the state due to api response, so it re-renders again
 
 // someone gives you a city, you call and get zipcode. you do that a lot. That's a candidate for customHook
+
+use elastic search or geocoding api for location search
+
+// supported events or synthetic events
+// https://legacy.reactjs.org/docs/events.html#supported-events

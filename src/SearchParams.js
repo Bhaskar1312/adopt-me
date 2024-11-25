@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"; // hooks always start with use
 import useBreedList from "./useBreedList";
-import Pet from "./Pet";
+import Results from "./Results";
 
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 const SearchParams = () => {
@@ -33,7 +33,12 @@ const SearchParams = () => {
 
   return (
     <div className="search-params">
-      <form>
+      <form
+          onSubmit = { (e) => {
+            e.preventDefault(); // submit form to itself, refresh the page
+            requestPets(); // magic of closures
+          }}
+      >
         <label htmlFor="location">
           Location
           {/* {location} */}
@@ -85,17 +90,9 @@ const SearchParams = () => {
           </select>
         </label>
         <button>Submit</button>
-        {[
-          pets.map((pet) => (
-            <Pet
-              name={pet.name}
-              animal={pet.animal}
-              breed={pet.breed}
-              key={pet.id}
-            />
-          )),
-        ]}
+        <Results pets={pets}/>
       </form>
+      <Results pets={pets}/>
     </div>
   );
 };
