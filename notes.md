@@ -89,3 +89,68 @@ If something is not working, try to delete parcel-cache dist folders
   ]
 ```
 go to https://browserslist.dev to check how much does last two versions cover
+
+
+jsx imports React for us. React.createElement is what jsx compiles to
+can be js/jsx file
+typescript requires to be tsx, otherwise it will not compile
+
+<Pet name="Luna" animal="Dog" breed="Havanese" />
+// props are immutable, can't change them, above passes {props.name, props.animal, props.breed}
+<Pet name="Luna" animal="Dog" breed="Havanese" ></Pet> //to pass children inside
+
+
+// fix eslint error for jsx
+> npm i -D eslint-plugin-import@2.25.4 eslint-plugin-jsx-a11y@6.5.1 eslint-plugin-react@7.28.1 eslint-plugin-react-hooks@4.3.0
+
+```json
+in .eslintrc.json
+"extends": ["eslint:recommended","plugin:react/recommended","plugin:jsx-a11y/recommended","plugin:import/errors","plugin:import/warnings","prettier"], // prettier-react is merged to prettier 
+
+"plugins": ["react","jsx-a11y","import"], 
+```
+// import plugin is for import/export statements across files, which eslint doesn't do at present
+// jsx-a11y is for accessibility, checks for img without alt, ...
+```json
+"rules": {
+    "react/prop-types": 0 or "off", 1 for warn, 2 for error // to turn off prop-types
+    "react/react-in-jsx-scope": "off" // to turn off react import in jsx
+  }
+```
+// to turn off prop-types, we can use typescript or flow for type checking
+```json
+"settings": {
+    "react": {
+      "version": "detect" // to detect react version, react changed, we are telling it to detect itself
+    }
+  }
+```
+}
+```
+
+> npm audit
+> npm audit fix // to fix the vulnerabilities
+
+
+useState depends on the order of the hooks, so we can't put it inside an if statement. It has to be called everytime in same order
+setLocation is a closure, so it can't be placed outside the function
+// onChange={e => setLocation(e.target.value)} // this will be rendered many times
+// onXXX is a react event, it will be intercepted by react before browser as react does it fast
+
+// <input type="text" id="location" value={location} placeholder="Location" onChange={e => setLocation(e.target.value)} /> // controlled component, value is controlled by react
+// instead of controlled form by react, use <form onSubmit={handleSubmit}> // uncontrolled form by react
+
+> npm i -D eslint-plugin-react-hooks@4.3.0
+```
+"extends": [
+"react-hooks:recommended"
+],
+plugins: ["react-hooks"]
+```
+// key is for react to destroy and recreate the element, so that it doesn't have to re-render the whole list
+// don't use index as key, as if they swap, it won't be able to identify the change
+
+// useEffect(()=>{}, 
+// [])  // //eslint-disable-line react-hooks/exhaustive-deps, incorrect warning
+
+// useEffect, it re-renders twice because of the way react works, it first renders and then updates the state due to api response, so it re-renders again
