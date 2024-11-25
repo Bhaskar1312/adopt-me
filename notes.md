@@ -174,3 +174,17 @@ use elastic search or geocoding api for location search
 // useDebugValue to show in React devtools for custom hooks
 
 // $r in console to see the selected element in react devtools
+
+You cant use router stuff outside BrowserRouter
+You can mutliple routers in react, but only one BrowserRouter
+You can have nested routes
+
+Link just refreshes that part of the page, not whole page like <a> tag
+
+Route should be inside Routes
+
+Remove <StrictMode> if issue with Routes
+
+use Href error if Link is outside BrowserRouter
+
+HashRouter adds #/ in url, never leave that page
