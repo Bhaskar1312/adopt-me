@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"; // hooks always start with use
+import useBreedList from "./useBreedList";
 import Pet from "./Pet";
 
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
@@ -8,7 +9,9 @@ const SearchParams = () => {
   console.log(location);
   const [animal, setAnimal] = useState("");
   const [breed, setBreed] = useState("");
-  const breeds = [];
+  const [breeds] = useBreedList(animal); // custom hook
+
+
   const [pets, setPets] = useState([]);
 
   useEffect(() => {

@@ -132,6 +132,7 @@ in .eslintrc.json
 > npm audit fix // to fix the vulnerabilities
 
 
+// do not put hooks inside if statements or loops. 
 useState depends on the order of the hooks, so we can't put it inside an if statement. It has to be called everytime in same order
 setLocation is a closure, so it can't be placed outside the function
 // onChange={e => setLocation(e.target.value)} // this will be rendered many times
@@ -154,3 +155,5 @@ plugins: ["react-hooks"]
 // [])  // //eslint-disable-line react-hooks/exhaustive-deps, incorrect warning
 
 // useEffect, it re-renders twice because of the way react works, it first renders and then updates the state due to api response, so it re-renders again
+
+// someone gives you a city, you call and get zipcode. you do that a lot. That's a candidate for customHook
