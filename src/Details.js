@@ -1,6 +1,7 @@
 import {useParams} from "react-router-dom";
 import {Component} from "react";
 import Carousel from "./Carousel";
+import ErrorBoundary from "./ErrorBoundary";
 
 // const Details = () => {
 //     const {id} = useParams()
@@ -44,6 +45,9 @@ class Details extends Component {
         if(this.state.loading) {
             return <h2>Loading...</h2>;
         }
+
+        throw new Error("Error thrown from Details.js");
+
         const {animal, breed, city, state, description, name, images } = this.state;
 
         return (
@@ -63,7 +67,9 @@ class Details extends Component {
 
 const WrappedDetails = () => {
     const {id} = useParams();
-    return <Details id={id} />;
+    return <ErrorBoundary>
+        <Details id={id} />
+    </ErrorBoundary>;
 }
 
 export default WrappedDetails;

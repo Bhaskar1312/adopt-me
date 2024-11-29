@@ -46,6 +46,7 @@ class Carousel extends React.Component {
                             className={index === active ? "active" : ""}
                             alt="animal thumbnail"
                             onClick={() => {
+                                // If it was keyboard handler, you'd do an onChange or onKeyUp, etc. handler.
                                 this.setState({active: index});
                             }}
                         />
