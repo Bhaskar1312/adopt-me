@@ -11,7 +11,7 @@ const SearchParams = () => {
   const [animal, setAnimal] = useState("");
   const [breed, setBreed] = useState("");
   const [breeds] = useBreedList(animal); // custom hook
-  const [theme] = useContext(ThemeContext);
+  const [theme, setTheme] = useContext(ThemeContext);
 
 
   const [pets, setPets] = useState([]);
@@ -91,7 +91,17 @@ const SearchParams = () => {
             ))}
           </select>
         </label>
-        <button style={{ backgroundColor: theme }}>Submit</button>
+        <label htmlFor="theme">
+          Theme
+          <select value={theme} onChange={(e) => setTheme(e.target.value)}
+                  onBlur={(e) => setTheme(e.target.value)}>
+            <option value="Peru">Peru</option>
+            <option value="darkblue">Dark Blue</option>
+            <option value="chartreuse">Chartreuse</option>
+            <option value="mediumorchid">Medium Orchid</option>
+          </select>
+        </label>
+        <button style={{backgroundColor: theme}}>Submit</button>
         <Results pets={pets}/>
       </form>
       <Results pets={pets}/>
