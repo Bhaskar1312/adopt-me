@@ -46,7 +46,7 @@ class Details extends Component {
             return <h2>Loading...</h2>;
         }
 
-        throw new Error("Error thrown from Details.js");
+        // throw new Error("Error thrown from Details.js");
 
         const {animal, breed, city, state, description, name, images } = this.state;
 
