@@ -1,6 +1,7 @@
-import {useState, useEffect} from "react"; // hooks always start with use
+import {useState, useEffect, useContext} from "react"; // hooks always start with use
 import useBreedList from "./useBreedList";
 import Results from "./Results";
+import ThemeContext from "./ThemeContext";
 
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 const SearchParams = () => {
@@ -10,6 +11,7 @@ const SearchParams = () => {
   const [animal, setAnimal] = useState("");
   const [breed, setBreed] = useState("");
   const [breeds] = useBreedList(animal); // custom hook
+  const [theme] = useContext(ThemeContext);
 
 
   const [pets, setPets] = useState([]);
@@ -89,7 +91,7 @@ const SearchParams = () => {
             ))}
           </select>
         </label>
-        <button>Submit</button>
+        <button style={{ backgroundColor: theme }}>Submit</button>
         <Results pets={pets}/>
       </form>
       <Results pets={pets}/>
