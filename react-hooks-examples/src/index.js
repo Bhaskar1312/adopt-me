@@ -1,5 +1,6 @@
 import State from "./State";
 import StateComponent from "./State";
+import EffectComponent from "./Effect";
 import { render } from "react-dom";
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
       <div className="App">
           <StateComponent/>
           <State/>
+          <EffectComponent />
           <hr />
       </div>
     );
