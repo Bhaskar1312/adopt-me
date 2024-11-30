@@ -5,6 +5,7 @@ import ContextComponent from "./Context";
 import { render } from "react-dom";
 import RefComponent from "./Ref";
 import ReducerComponent from "./Reducer";
+import MemoComponent from "./Memo";
 
 function App() {
     return(
@@ -19,6 +20,8 @@ function App() {
           <RefComponent />
           <hr />
           <ReducerComponent />
+          <hr />
+          <MemoComponent />
           <hr />
       </div>
     );
