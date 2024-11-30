@@ -4,6 +4,7 @@ import EffectComponent from "./Effect";
 import ContextComponent from "./Context";
 import { render } from "react-dom";
 import RefComponent from "./Ref";
+import ReducerComponent from "./Reducer";
 
 function App() {
     return(
@@ -16,6 +17,8 @@ function App() {
           <ContextComponent />
           <hr />
           <RefComponent />
+          <hr />
+          <ReducerComponent />
           <hr />
       </div>
     );

@@ -203,3 +203,5 @@ babel is doing jsx to js transformations, transpiling, polyfilling, etc
 
 
 // useContext + useReducer = redux most of the time
+// Redux is used for complex state management, redux-saga for side effects, redux-thunk for async actions
+// xState for state machines like dead/alive with health=0/>0 in games, list all possible state
