@@ -3,6 +3,7 @@ import StateComponent from "./State";
 import EffectComponent from "./Effect";
 import ContextComponent from "./Context";
 import { render } from "react-dom";
+import RefComponent from "./Ref";
 
 function App() {
     return(
@@ -13,6 +14,8 @@ function App() {
           <EffectComponent />
           <hr />
           <ContextComponent />
+          <hr />
+          <RefComponent />
           <hr />
       </div>
     );
