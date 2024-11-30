@@ -200,3 +200,4 @@ other class components https://reactjs.org/docs/react-component.html
 }
 ```
 babel is doing jsx to js transformations, transpiling, polyfilling, etc
+
