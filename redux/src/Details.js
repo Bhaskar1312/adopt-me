@@ -2,8 +2,8 @@ import {useParams} from "react-router-dom";
 import {Component} from "react";
 import Carousel from "./Carousel";
 import ErrorBoundary from "./ErrorBoundary";
-import ThemeContext from "./ThemeContext";
 import Modal from "./Modal";
+import { connect } from "react-redux";
 
 // const Details = () => {
 //     const {id} = useParams()
@@ -11,35 +11,12 @@ import Modal from "./Modal";
 // }
 
 class Details extends Component {
-    // cant use Hooks, useParams in class components
-
-    // constructor(props) {
-    //     super(props); // pass props to React
-    //
-    //     this.state = {loading: true}; // manage state in class components
-    // }
-
     state = {loading: true, showModal: false }; // class properties, babel transpiles this to constructor
 
     async componentDidMount() { // => useEffect(()=>{}, []) in functional components
-        // runs after render
-        // can make async, need not be async
-        const res = await fetch(`http://pets-v2.dev-apis.com/pets?id=${this.props.id}`);
+        const res = await fetch(`http://pets-v2.dev-apis.com/pets?id=${this.props.params.id}`);
         const json = await res.json();
-        // this.setState({loading: false});
-        // this.setState(json.pets[0]);
-/*
-        setTimeout(function(){
-            console.log("this", this); // this is not the class instance, but the global object
-        }, 5000);
-
-        setTimeout(() => {
-            console.log("this", this); // this is the class instance, has class context
-        })
-
- */
-
-        // this.setState(Object.assign({loading: false}, json.pets[0])); // object spread operator
+        
         this.setState({loading: false, ...json.pets[0]}); // object spread operator
     }
 
@@ -61,15 +38,12 @@ class Details extends Component {
                     <h1>{name}</h1>
                     <h2>{`${animal} - ${breed} - ${city}, ${state}`}</h2>
                     <button onClick={this.toggleModal}>Adopt {name}</button>
-                    <ThemeContext.Consumer>
-                        {
-                            // how to read context from class component
-                            ([theme])=> {
-                                return <button onClick={this.toggleModal}
-                                    style={{backgroundColor: theme}}>Adopt {name}</button>
-                            }
-                        }
-                    </ThemeContext.Consumer>
+
+                    <button 
+                        onClick={this.toggleModal}
+                        style={{backgroundColor: this.props.theme}}
+                    >Adopt {name}</button>
+
                     <p>{description}</p>
                     {
                         showModal? (
@@ -92,12 +66,15 @@ class Details extends Component {
 
 }
 
+const mapStateToProps = ({theme}) => ({theme});
+const ReduxWrappedDetails = connect(mapStateToProps)(Details);
+
 const WrappedDetails = () => {
-    const {id} = useParams();
+    const params = useParams();
     return <ErrorBoundary>
-        <Details id={id} />
+        <ReduxWrappedDetails params={params}
+        />
     </ErrorBoundary>;
 }
 
 export default WrappedDetails;
-// export default WithRouter(Details); // deprecated, higher order component

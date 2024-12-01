@@ -365,4 +365,14 @@ ESLint: 8.8.0  Error: Error while loading rule '@typescript-eslint/await-thenabl
 // Since [] and "unloaded" aren't explcit enough for TypeScript know that those are a string[] or a Status, we can cast them to TypeScript definitely knows what they are.
 
 > tsc --noEmit // in CI pipelines
-> 
+
+> npm i redux@4.1.2 react-redux@7.2.6
+
+ there are a thousand flavors of how to do async with Redux. The most popular are redux-observable, redux-saga, redux-promise, and redux-thunk.
+
+Just like context makes your store available anywhere in your app, so does Provider.
+```
+
+<b>You may wonder why we don't just do one useSelector call here, return the whole state, and destructure that. Each hook is creating its own subscription and react-redux internally uses the functions you provide to check to see if your subscription changed. If the result of your selector function changes, it'll notify React to kick off a re-render of this component. Hence it's important that these subscription functions just grab the state that you care about. Otherwise it will kick off needless re-renders any time any state in your app changes.</b>
+
+// redux chrome/browser extension - tests, time travel debugging, replay
