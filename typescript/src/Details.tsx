@@ -4,7 +4,7 @@ import Carousel from "./Carousel";
 import ErrorBoundary from "./ErrorBoundary.js";
 import ThemeContext from "./ThemeContext";
 import Modal from "./Modal";
-import {Pet, PetAPIResponse, Animal} from "./APIResponseTypes";
+import {PetAPIResponse, Animal} from "./APIResponseTypes";
 
 
 interface Props {

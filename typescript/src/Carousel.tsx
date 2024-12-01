@@ -1,7 +1,11 @@
-// import { Component }   from "react";
+import { Component, MouseEvent, ReactNode }   from "react";
 import React from "react";
 
-class Carousel extends React.Component {
+interface IProps {
+    images: string[];
+}
+
+class Carousel extends Component<IProps> {
 
     // constructor(props) {
     //     super(this.props);
@@ -12,11 +16,19 @@ class Carousel extends React.Component {
     //    console.log("this", this); // this is undefined, because it is not bound to the class instance
     // }
 
-    // handleIndexClick = (event) => {
-    //     console.log("this", this); // this is the class instance, because it is an arrow function
+    handleIndexClick = (event: MouseEvent<HTMLElement>): void => {
+        console.log("this", this); // this is the class instance, because it is an arrow function
     // +event.target.dataset.something1 refers to data-something1 attribute in the img tag, this is not react thing, but a DOM thing
     // add unary + to convert to number
-    // }
+        if(!(event.target instanceof HTMLElement)) {
+            return;
+        }
+        if(event.target.dataset.index) {
+            this.setState({
+                active: +event.target.dataset.index
+            });
+        }
+    }
 
     state = {
         active : 0,
@@ -29,7 +41,7 @@ class Carousel extends React.Component {
         ]
     }
 
-    render() {
+    render(): ReactNode {
         const { active } = this.state; // comes from state
         const { images } = this.props; // comes from immutable props or default props
 

@@ -360,3 +360,6 @@ ESLint: 8.8.0  Error: Error while loading rule '@typescript-eslint/await-thenabl
 }```
 
 // https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin#supported-rules
+
+// localCache can have anything as a key so we need to let TypeScript know that. We have a generic "index" key that could be anything, and we're letting TypeScript know that only string arrays can be set as values.
+// Since [] and "unloaded" aren't explcit enough for TypeScript know that those are a string[] or a Status, we can cast them to TypeScript definitely knows what they are.

@@ -1,4 +1,4 @@
-import {Component}  from "react";
+import { Component, ErrorInfo } from "react";
 import {Link, Navigate} from "react-router-dom";
 import {render} from "react-dom";
 
@@ -11,11 +11,11 @@ class ErrorBoundary extends Component {
         return {hasError: true};
     }
 
-    componentDidCatch(error, errorInfo) {
+    componentDidCatch(error: Error, errorInfo: ErrorInfo) {
         console.error(error, errorInfo);
     }
 
-    componentDidUpdate(prevProps, prevState, snapshot) { // === useEffect with dependencies, doesn't run on first render
+    componentDidUpdate(): void { // === useEffect with dependencies, doesn't run on first render
         if (this.state.hasError) {
             setTimeout(() => this.setState({redirect: true}), 5000);
         }
