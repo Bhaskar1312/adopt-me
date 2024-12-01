@@ -323,3 +323,39 @@ flow can also be used which is by facebook
 > npm i -D @types/react@17.0.39 @types/react-dom@17.0.11 
 
 for typescript tsx is required unlike jsx for js. ts is not sufficient
+> npm uninstall @babel/eslint-parser
+> npm install -D eslint-import-resolver-typescript@2.5.0 @typescript-eslint/eslint-plugin@5.13.0 @typescript-eslint/parser@5.13.0
+
+Add the following to .eslintrc.json
+```
+// inside extends, above prettier rules
+"plugin:@typescript-eslint/recommended",
+
+// inside rules, generally a good rule but we're going to disable it for now
+"@typescript-eslint/no-empty-function": 0
+
+// inside plugins
+"@typescript-eslint"
+
+// replace parser
+"parser": "@typescript-eslint/parser",
+
+// add to settings array
+"import/parsers": {
+"@typescript-eslint/parser": [".ts", ".tsx"]
+},
+"import/resolver": {
+"typescript": {
+"alwaysTryTypes": true
+}
+}
+```
+
+ESLint: 8.8.0  Error: Error while loading rule '@typescript-eslint/await-thenable': You have used a rule which requires parserServices to be generated. You must therefore provide a value for the "parserOptions.project" property for @typescript-eslint/parser. Occurred while linting
+```json{
+"parser": "@typescript-eslint/parser",
+"parserOptions": {
+"project": "./tsconfig.json"
+},
+}```
+
