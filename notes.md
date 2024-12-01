@@ -359,3 +359,4 @@ ESLint: 8.8.0  Error: Error while loading rule '@typescript-eslint/await-thenabl
 },
 }```
 
+// https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin#supported-rules
