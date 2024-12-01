@@ -294,3 +294,16 @@ code-splitting - when code is too much js, sent to browser, it can be sent to se
 
 
 spaceship for zsh terminal
+
+render, DOM, document in Modal, window, fetch cant be rendered in node, have to be in browser
+use hydrate for server side rendering instead of render 
+
+> npm i express@4.17.1
+
+//   "start": "node dist/backend/index.js", // if issues in windows for && 
+// on package.json
+
+// // node doesn't run jsx,es modules something needs to compile them, parcel gonna read this and build
+//  "optimize": false, // as we are not sending over the network, we need better error messages
+
+test after npm run build, start by disabling js in browser
