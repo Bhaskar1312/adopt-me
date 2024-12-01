@@ -34,8 +34,9 @@ const SearchParams = () => {
   // }
 
   return (
-    <div className="search-params">
+    <div className="my-0 mx-auto w-11/12">
       <form
+          className="p-10 mb-10 bg-gray-200 rounded-lg shadow-lg flex flex-col justify-center items-center"
           onSubmit = { (e) => {
             e.preventDefault(); // submit form to itself, refresh the page
             requestPets(); // magic of closures
@@ -46,8 +47,10 @@ const SearchParams = () => {
           {/* {location} */}
           <input
             id="location"
+            type="text"
             value={location}
             placeholder="Location"
+            className="w-60 mb-5 block"
             onChange={(event) => setLocation(event.target.value)}
           />
         </label>
@@ -56,6 +59,7 @@ const SearchParams = () => {
           <select
             id="animal"
             value={animal}
+            className="w-60 mb-5 block"
             onChange={(e) => {
               setAnimal(e.target.value);
               setBreed("");
@@ -80,6 +84,8 @@ const SearchParams = () => {
           <select
             id="breed"
             value={breed}
+            disabled={!breeds.length}
+            className="w-60 mb-5 block disabled:opacity-50"
             onChange={(e) => setBreed(e.target.value)}
             onBlur={(e) => setBreed(e.target.value)}
           >
@@ -93,16 +99,22 @@ const SearchParams = () => {
         </label>
         <label htmlFor="theme">
           Theme
-          <select value={theme} onChange={(e) => setTheme(e.target.value)}
-                  onBlur={(e) => setTheme(e.target.value)}>
+          <select 
+                value={theme}
+                className="w-60 mb-5 block"
+                onChange={(e) => setTheme(e.target.value)}
+                onBlur={(e) => setTheme(e.target.value)}>
             <option value="Peru">Peru</option>
             <option value="darkblue">Dark Blue</option>
             <option value="chartreuse">Chartreuse</option>
             <option value="mediumorchid">Medium Orchid</option>
           </select>
         </label>
-        <button style={{backgroundColor: theme}}>Submit</button>
-        <Results pets={pets}/>
+        <button 
+          className="rounded px-6 py-2 text-white hover:opacity-50 border-none"
+          style={{backgroundColor: theme}}
+          >Submit</button>
+        {/* <Results pets={pets}/> */}
       </form>
       <Results pets={pets}/>
     </div>

@@ -5,5 +5,7 @@ module.exports = {
     extend: {},
   },
   variant: {}, // will fill later
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms')
+  ],
 }
