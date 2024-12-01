@@ -6,6 +6,7 @@ import { render } from "react-dom";
 import RefComponent from "./Ref";
 import ReducerComponent from "./Reducer";
 import MemoComponent from "./Memo";
+import CallbackComponent from "./Callback";
 
 function App() {
     return(
@@ -22,6 +23,8 @@ function App() {
           <ReducerComponent />
           <hr />
           <MemoComponent />
+          <hr />
+          <CallbackComponent />
           <hr />
       </div>
     );
