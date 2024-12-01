@@ -247,6 +247,9 @@ tailwind css intellisense vs code extension
 // p-0 to p-12 and then p-14, p-16, p-20, p-24, p-32, p-40, p-48, p-56, p-64, p-px
 // m-0 to m-12 and then m-14, m-16, m-20, m-24, m-32, m-40, m-48, m-56, m-64, m-px
 // negative margin -m-10
+// There's also mt, ml, mr, mb for top, left, right, bottom and mx for left and right and my for top and bottom (these all apply to p as well.)
+
+> https://btholt.github.io/complete-intro-to-react-v7/lessons/tailwindcss/tailwind-basics
 
 w-full: Sets the width to 100%.
 mb-10: Adds a margin-bottom of 2.5rem (40px).
@@ -257,10 +260,24 @@ from-purple-400: The gradient starts with the color purple-400.
 via-pink-500: The gradient transitions through the color pink-500.
 to-red-500: The gradient ends with the color red-500.
 
-// motion and styled components are good for javascript controlled animations
+// emotion and styled components are good for javascript controlled animations
 // my-auto margin top bottom - auto, mx-0 margin left right - 0, centering the element
 
 // flex
+
+<div className="grid gap-4 grid-cols-2">[…]</div>
+
+grid puts you into display: grid.
+gap-4 gives you the gutters between with the number representing how big.
+grid-cols-2 says how many you want per row.
+But we're not done here. Let's make it responsive too.
+
+<div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">[…]</div>
+🤯
+
+The sm: is the small breakpoint which is larger than 640px apply this style (these can be adjusted and renamed)
+The lg: is the large breakpoint is larger than 1024px. There's also md, xl, and 2xl too.
+
 
 > npm -i -D @tailwindcss/forms@0.4.0
  tailwindcss.config 
@@ -273,4 +290,7 @@ to-red-500: The gradient ends with the color red-500.
 // grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 in Result.js
 
 code-splitting - when code is too much js, sent to browser, it can be sent to server lazily
+// Details page isn't too big but imagine if it had libraries like Moment or Lodash on it! It could be a big savings.
 
+
+spaceship for zsh terminal
