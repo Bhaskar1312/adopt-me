@@ -209,3 +209,5 @@ babel is doing jsx to js transformations, transpiling, polyfilling, etc
 
 
 useCallback - memoize a function, so that it doesn't re-render everytime
+
+useLayoutEffect - useful if we want something to be run immediately rather than later like useEffect and synchronous
