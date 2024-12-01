@@ -4,11 +4,14 @@ import Carousel from "./Carousel";
 import ErrorBoundary from "./ErrorBoundary";
 import ThemeContext from "./ThemeContext";
 import Modal from "./Modal";
+import * as moment from "moment";
 
 // const Details = () => {
 //     const {id} = useParams()
 //     return <h2>Hi {id}</h2>;
 // }
+
+console.log("moment", moment); // moment is large library, should be code split by parcel
 
 class Details extends Component {
     // cant use Hooks, useParams in class components
