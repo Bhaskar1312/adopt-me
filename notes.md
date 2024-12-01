@@ -314,3 +314,12 @@ some error in server-side-rendering, images not being shown, try and fix later
 
 // put critical in head and rest in body
 // or put defer async for non-critical so that they are non-blocking
+
+> npm i -D typescript@4.5.5
+flow can also be used which is by facebook
+> npx tsc --init
+// put ES2021, strictMode on, jsx preserve
+
+> npm i -D @types/react@17.0.39 @types/react-dom@17.0.11 
+
+for typescript tsx is required unlike jsx for js. ts is not sufficient
