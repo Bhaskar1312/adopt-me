@@ -1,6 +1,8 @@
+import { FC } from "react";
+import { Pet as PetType } from './APIResponseTypes';
 import Pet from "./Pet";
 
-const Results = ({ pets }) => {
+const Results: FC<{ pets: PetType[] }> = ({ pets }) => {
     // const pets = params.pets;
     return (
         <div>

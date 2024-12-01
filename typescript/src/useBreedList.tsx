@@ -32,5 +32,5 @@ export default function useBreedList(animal: Animal): [string[], Status] {
             setBreedList(localCache[animal]);
         }
     }, [animal]);
-    return [breedList, status];
+    return [breedList, status] as [string[], Status];
 }

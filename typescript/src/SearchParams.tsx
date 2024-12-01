@@ -1,30 +1,31 @@
-import {useState, useEffect, useContext} from "react"; // hooks always start with use
+import { FC, useState, useEffect, useContext} from "react"; // hooks always start with use
 import useBreedList from "./useBreedList";
 import Results from "./Results";
 import ThemeContext from "./ThemeContext";
+import { Animal, Pet, PetAPIResponse } from "./APIResponseTypes";
 
-const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
-const SearchParams = () => {
+const ANIMALS: Animal[] = ["bird", "cat", "dog", "rabbit", "reptile"];
+const SearchParams: FC = () => {
   // const location = "Seattle, WA";
   const [location, setLocation] = useState("");
   console.log(location);
-  const [animal, setAnimal] = useState("");
+  const [animal, setAnimal] = useState("" as Animal);
   const [breed, setBreed] = useState("");
   const [breeds] = useBreedList(animal); // custom hook
   const [theme, setTheme] = useContext(ThemeContext);
 
 
-  const [pets, setPets] = useState([]);
+  const [pets, setPets] = useState([] as Pet[]);
 
   useEffect(() => {
-    requestPets();
+    void requestPets();
   }, []); //eslint-disable-line react-hooks/exhaustive-deps
 
   async function requestPets() {
     const res = await fetch(
       `http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}` // closure, referring to animal in setAnimal useState hook line
     );
-    const json = await res.json();
+    const json = (await res.json()) as PetAPIResponse;
 
     setPets(json.pets);
   }
@@ -38,7 +39,7 @@ const SearchParams = () => {
       <form
           onSubmit = { (e) => {
             e.preventDefault(); // submit form to itself, refresh the page
-            requestPets(); // magic of closures
+            void requestPets(); // magic of closures
           }}
       >
         <label htmlFor="location">
@@ -57,11 +58,11 @@ const SearchParams = () => {
             id="animal"
             value={animal}
             onChange={(e) => {
-              setAnimal(e.target.value);
+              setAnimal(e.target.value as Animal);
               setBreed("");
             }}
             onBlur={(e) => {
-              setAnimal(e.target.value);
+              setAnimal(e.target.value as Animal);
               setBreed("");
             }}
           >
