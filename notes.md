@@ -223,3 +223,11 @@ From the parent, we assign via useRef a ref to each of the ElaborateInputs which
 
 
 useDebugValue allows you to surface information from your custom hook into the dev tools. This allows the developer who is consuming your hook (possibly you, possibly your coworker) to have whatever debugging information you choose to surfaced to them. If you're doing a little custom hook for your app (like the breed one we did in the Intro course) this probably isn't necessary. However if you're consuming a library that has hooks (like how react-router-dom has hooks) these can be useful hints to developers.
+```
+
+> npm i -D tailwindcss@3.0.22 postcss@8.4.6 autoprefixer@10.4.2
+
+// postcss is like babel for css, it transpiles css to older css for browser compatibility. non-standard css, futuristic css, css variables
+// autoprefixer is a postcss plugin, it adds vendor prefixes to css properties, like -webkit, -moz, -ms, -o
+
+> npx tailwindcss init (-p) // to create tailwind.config.js
