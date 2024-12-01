@@ -211,3 +211,7 @@ babel is doing jsx to js transformations, transpiling, polyfilling, etc
 useCallback - memoize a function, so that it doesn't re-render everytime
 
 useLayoutEffect - useful if we want something to be run immediately rather than later like useEffect and synchronous
+ If you're migrating from a class component to a hooks-using function component, this can be helpful too because useLayout runs at the same time as componentDidMount and componentDidUpdate whereas useEffect is scheduled after. This should be a temporary fix.
+
+The only time you should be using useLayoutEffect is to measure DOM nodes for things like animations.
+
