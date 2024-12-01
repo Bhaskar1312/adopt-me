@@ -6,7 +6,8 @@
     "dev": "parcel src/index.html",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "format:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
-    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet"
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet",
+    "typecheck": "tsc --noEmit"
   },
   "keywords": [],
   "author": "",

@@ -1,7 +1,7 @@
 import {useParams} from "react-router-dom";
 import {Component} from "react";
 import Carousel from "./Carousel";
-import ErrorBoundary from "./ErrorBoundary.js";
+import ErrorBoundary from "./ErrorBoundary";
 import ThemeContext from "./ThemeContext";
 import Modal from "./Modal";
 import {PetAPIResponse, Animal} from "./APIResponseTypes";
