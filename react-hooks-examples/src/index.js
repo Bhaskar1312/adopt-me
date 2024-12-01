@@ -9,6 +9,7 @@ import MemoComponent from "./Memo";
 import CallbackComponent from "./Callback";
 import LayoutEffectComponent from "./LayoutEffect";
 import ImperativeHandleComponent from "./ImperativeHandle";
+import DebugValueComponent from "./DebugValue";
 
 function App() {
     return(
@@ -32,6 +33,7 @@ function App() {
           <hr />
           <ImperativeHandleComponent />
           <hr />
+          <DebugValueComponent />
       </div>
     );
 }
