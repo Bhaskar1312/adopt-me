@@ -1,17 +1,19 @@
 import {useParams} from "react-router-dom";
-import {Component} from "react";
+import { Component, lazy } from "react";
 import Carousel from "./Carousel";
 import ErrorBoundary from "./ErrorBoundary";
 import ThemeContext from "./ThemeContext";
-import Modal from "./Modal";
-import * as moment from "moment";
+// import Modal from "./Modal";
 
 // const Details = () => {
 //     const {id} = useParams()
 //     return <h2>Hi {id}</h2>;
 // }
 
-console.log("moment", moment); // moment is large library, should be code split by parcel
+
+
+const Modal = lazy(()=> import("./Modal"));
+// we dont need another suspense here, because we are already using suspense in app.js, it bubbles up till there
 
 class Details extends Component {
     // cant use Hooks, useParams in class components

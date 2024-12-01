@@ -2,6 +2,9 @@
 
 import {useEffect, useRef} from "react";
 import {createPortal} from "react-dom";
+import * as moment from "moment";
+
+console.log("moment", moment); // moment is large library, should be code split by parcel
 
 const Modal = ({children} ) => {
     const eleRef = useRef(null); // reference to the element
