@@ -271,3 +271,6 @@ to-red-500: The gradient ends with the color red-500.
 
 // responsive design width breakpoints
 // grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 in Result.js
+
+code-splitting - when code is too much js, sent to browser, it can be sent to server lazily
+
