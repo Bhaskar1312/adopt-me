@@ -307,3 +307,10 @@ use hydrate for server side rendering instead of render
 //  "optimize": false, // as we are not sending over the network, we need better error messages
 
 test after npm run build, start by disabling js in browser
+
+// We're also using ReactDOM.hydrate instead of ReactDOM.render because this will hydrate existing markup with React magic ✨ rather than render it from scratch.
+
+some error in server-side-rendering, images not being shown, try and fix later
+
+// put critical in head and rest in body
+// or put defer async for non-critical so that they are non-blocking

@@ -18,6 +18,7 @@ const SearchParams = () => {
 
   useEffect(() => {
     requestPets();
+    console.log("Requesting pets in useEffect");
   }, []); //eslint-disable-line react-hooks/exhaustive-deps
 
   async function requestPets() {
@@ -25,6 +26,7 @@ const SearchParams = () => {
       `http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}` // closure, referring to animal in setAnimal useState hook line
     );
     const json = await res.json();
+    console.log(json);
 
     setPets(json.pets);
   }

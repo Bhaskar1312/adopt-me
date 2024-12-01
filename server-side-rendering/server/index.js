@@ -1,5 +1,5 @@
 import express from "express";
-import {renderToString} from "react-dom/server";
+import {renderToString, renderToNodeStream } from "react-dom/server";
 import {StaticRouter} from "react-router-dom/server";
 import fs from "fs";
 import App from "../src/app";
@@ -17,12 +17,19 @@ const parts = html.split("not rendered"); // usually <--break here-->
 const app = express();
 app.use("/frontend", express.static("dist/frontend"));
 app.use((req, res)=> {
+  res.write(parts[0]);
   const reactMarkup = //goes thru parcel, so ok to use jsx
+
     (<StaticRouter location={req.url}>
       <App />
     </StaticRouter>);
-  res.send(parts[0] + renderToString(reactMarkup) + parts[1]); // can use template string ``
-  res.end();
+  // res.send(parts[0] + renderToString(reactMarkup) + parts[1]); // can use template string ``
+  const stream = renderToNodeStream(reactMarkup);
+  stream.pipe(res, {end: false});
+  stream.on("end",()=>{
+    res.write(parts[1]);
+    res.end(); // u don't need to end it
+  });
 })
 console.log(`Listening on http://localhost:${port}`);
 app.listen(port);

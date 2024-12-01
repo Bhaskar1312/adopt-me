@@ -1,7 +1,7 @@
 
 import { Routes, Route, Link} from "react-router-dom";
 import SearchParams from "./SearchParams";
-import {StrictMode, useState} from "react";
+import { useState} from "react";
 import Details from "./Details";
 import ThemeContext from "./ThemeContext";
 
