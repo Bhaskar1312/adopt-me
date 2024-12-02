@@ -453,4 +453,7 @@ This is preferable because now Pet can shift (and you test Pet to have confidenc
 Update your snapshots by either running npm run test -- -u or you can use the watcher to do it with either u to update all at once or do i one-by-one.
 You should commit snapshot files to git.
 
+> jest --coverage
+// testing/coverage/lcov-report/index.html
 
+jest extension in vs code by Orta

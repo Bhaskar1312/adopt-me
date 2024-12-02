@@ -8,6 +8,7 @@
     "format:check": "prettier --check \"src/**/*.{js,jsx}\"",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "test": "jest",
+    "test:coverage": "jest --coverage",
     "test:watch": "jest --watch"
   },
   "keywords": [],
@@ -44,7 +45,7 @@
     "last 2 Safari versions"
   ],
   "jest": {
-    "automocks": false,
+    "automock": false,
     "setupFiles": [
       "./src/setupJest.js"
     ]
