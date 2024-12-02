@@ -443,3 +443,14 @@ in package.json
 "setupFiles": ["./src/setupJest.js"] // dont put in __tests__ dir, jest will think to be test file
 }
 ```
+
+> npm i -D react-test-renderer@17.0.2
+
+// import { createRenderer } from "react-test-renderer/shallow";
+
+This is preferable because now Pet can shift (and you test Pet to have confidence in that component) with raising a false alarm in Results.
+
+Update your snapshots by either running npm run test -- -u or you can use the watcher to do it with either u to update all at once or do i one-by-one.
+You should commit snapshot files to git.
+
+
