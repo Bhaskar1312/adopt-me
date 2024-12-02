@@ -411,7 +411,7 @@ or Modal.test.js (ending .test.js) if jest finds it, then it runs
 }
 ```
 // This is just saying when we run Jest (it runs with NODE_ENV in test mode by default, hence the env name) to transform the code to work for Node.js instead of the browser.
-
+> npm i -D @babel/preset-react
 > npm i -D @babel/preset-env
 
 in package.json
@@ -421,4 +421,12 @@ in package.json
 ```
 > npm run test
 > npm t
-> 
+```make sure it is at top of file
+/**
+* @jest-environment jsdom
+  */
+  ```
+
+  // js-dom browserly implementation fake-doms
+* // // not necessary .test as it is in __test__
+
