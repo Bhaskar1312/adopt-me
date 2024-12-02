@@ -324,6 +324,7 @@ flow can also be used which is by facebook
 
 for typescript tsx is required unlike jsx for js. ts is not sufficient
 > npm uninstall @babel/eslint-parser
+> npm un @babel/eslint-parser
 > npm install -D eslint-import-resolver-typescript@2.5.0 @typescript-eslint/eslint-plugin@5.13.0 @typescript-eslint/parser@5.13.0
 
 Add the following to .eslintrc.json
@@ -376,3 +377,48 @@ Just like context makes your store available anywhere in your app, so does Provi
 <b>You may wonder why we don't just do one useSelector call here, return the whole state, and destructure that. Each hook is creating its own subscription and react-redux internally uses the functions you provide to check to see if your subscription changed. If the result of your selector function changes, it'll notify React to kick off a re-render of this component. Hence it's important that these subscription functions just grab the state that you care about. Otherwise it will kick off needless re-renders any time any state in your app changes.</b>
 
 // redux chrome/browser extension - tests, time travel debugging, replay
+
+> npm i -D jest@27.5.1 @testing-library/react@12.1.3
+
+__tests__ dir  // Jest assumes all JS files in here are tests.
+or Modal.test.js (ending .test.js) if jest finds it, then it runs
+```json(babelrc)
+{
+  "presets": [
+    [
+      "@babel/preset-react",
+      {
+        "runtime": "automatic"
+      }
+    ],
+    "@babel/preset-env"
+  ],
+  "plugins": ["@babel/plugin-proposal-class-properties"],
+  "env": {
+    "test": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "targets": {
+              "node": "current"
+            }
+          }
+        ]
+      ]
+    }
+  }
+}
+```
+// This is just saying when we run Jest (it runs with NODE_ENV in test mode by default, hence the env name) to transform the code to work for Node.js instead of the browser.
+
+> npm i -D @babel/preset-env
+
+in package.json
+```json
+"test": "jest",
+"test:watch": "jest --watch"
+```
+> npm run test
+> npm t
+> 
