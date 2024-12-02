@@ -9,6 +9,7 @@ import { StaticRouter } from "react-router-dom/server";
 test("display a thumbnail", async () => {
     const pet = render(
       <StaticRouter>
+        {/*  needed when there is links react-router-dom is involved */}
         <Pet />
       </StaticRouter>
     );

@@ -35,11 +35,12 @@ class Carousel extends React.Component {
 
         return (
             <div className="carousel">
-                <img src={images[active]} alt="animal"/>
+                <img data-testid="hero" src={images[active]} alt="animal"/>
                 <div className="carousel-smaller">
                     {images.map((photo, index) => (
                         // eslint-disable-next-line
                         <img /* jsx-a11y/no-noninteractive-element-interactions error */
+                            data-testid={`thumbnail${index}`}
                             key={photo}
                             src={photo}
                             /*data-something1={index}*/

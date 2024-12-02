@@ -430,3 +430,16 @@ in package.json
   // js-dom browserly implementation fake-doms
 * // // not necessary .test as it is in __test__
 
+// <img> tag data-testid="thumbnail" to it so that your test can find it. It's advantageous to use these test IDs and decouple them from the existing CSS selector hierarchy because now it's very portable and not fragile.
+
+> npm i -D @testing-library/react-hooks@7.0.2
+use renderHook 
+> npm i -D jest-fetch-mock@3.0.3
+
+in package.json 
+```json
+"jest": {
+"automocks": false,
+"setupFiles": ["./src/setupJest.js"] // dont put in __tests__ dir, jest will think to be test file
+}
+```
